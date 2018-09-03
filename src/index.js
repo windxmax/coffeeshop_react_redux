@@ -1,8 +1,18 @@
-import './index.css'
-
 import React from 'react'
-import {render} from 'react-dom'
+import ReactDOM from 'react-dom'
+import {Router, Route, hashHistory} from 'react-router'
+import {Switch, BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux'
 
-import App from './App'
+import Menu from './Menu'
+import Configure_store from './Configure_store'
 
-render(<App/>, document.querySelector('#app'))
+const store = Configure_store()
+
+ReactDOM.render((
+  <Provider store={store}>
+    <BrowserRouter>
+      <Menu/>
+    </BrowserRouter>
+  </Provider>
+), document.getElementById('root'))

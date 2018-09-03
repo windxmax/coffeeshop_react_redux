@@ -1,0 +1,38 @@
+[
+{
+      "id":"lkdsfls1",
+      "name":"americano",
+      "amount":[
+        ["0.25","40"],
+        ["0.4","60"],
+        ["0.5","70"]
+      ],
+      "composition":"some text..."
+    },
+    {
+      "id":"fdsfsdf2",
+      "name":"espresso",
+      "amount":[
+        ["0.25","40"]
+      ],
+      "composition":"some text..."
+    },
+    {
+      "id":"fghwprd3",
+      "name":"cappuccino",
+      "amount":[
+        ["0.25","40"],
+        ["0.4","60"],
+        ["0.5","70"]
+      ],
+      "composition":"some text..."
+    },
+    {
+      "id":"fdsfsrydf2",
+      "name":"double espresso",
+      "amount":[
+        ["0.25","60"]
+      ],
+      "composition":"some text..."
+    }
+]
