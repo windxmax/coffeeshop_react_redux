@@ -29,12 +29,21 @@ initial_localStorage.add = function(addItem){
     localStorage.setItem('data', JSON.stringify(prev))
   }
 }
+
 /*
 Удаление единицы товара в localstorage. такое же удаление в store происходит в user_order
 */
-
 initial_localStorage.minus = function(delItem){
   let data = JSON.parse(localStorage.getItem('data'))
   data.splice(delItem, 1)
   localStorage.setItem('data', JSON.stringify(data))
+}
+
+/*
+Изменение единицы товара, когда несколько одинаковых экземпляров
+*/
+initial_localStorage.double_change = function(doubleItem){
+  let prev = JSON.parse(localStorage.getItem('data'))
+  prev.splice(doubleItem[0], 1, doubleItem[1])
+  localStorage.setItem('data', JSON.stringify(prev))
 }

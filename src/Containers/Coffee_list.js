@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import Coffee_list from '../Components/Coffee_list'
 import * as addActions from '../Actions/Add_to_user_order'
 import * as loadCoffeeList from '../Actions/Get_coffee_list'
+import * as doubleAdd from '../Actions/Double_add'
 import initial_localStorage from '../Function/localstorage.js'
 
 /*
@@ -26,19 +27,22 @@ class Add extends Component {
       })
       .catch((error)=>{console.log('Ошибка в fetch контейнера coffee_list '+ error)})
   }
-//веряем текущий state и  localStorage, помогает сохранить данные после f5 страницы
+//Сверяем текущий state и  localStorage, помогает сохранить данные после f5 страницы
   componentWillReceiveProps(nextProps){
       initial_localStorage(nextProps.user_order.cap, this.props.addActions.add_to_user_order)
   }
 
   render() {
-
+    const { cap } = this.props.user_order
     const { add_to_user_order } = this.props.addActions
+    const { double_add } = this.props.doubleAdd
     if (this.state.isReady === true) {
     return(
       <div>
         <Coffee_list
+          cap={cap}
           add_to_user_order={add_to_user_order}
+          double_add={double_add}
           coffee_list={this.props.coffee_list}
       />
       </div>
@@ -59,7 +63,8 @@ function mapStateToProps (state) {
 function mapDispatchToProps(dispatch) {
   return {
     addActions: bindActionCreators(addActions, dispatch),
-    loadCoffeeList: bindActionCreators(loadCoffeeList, dispatch)
+    loadCoffeeList: bindActionCreators(loadCoffeeList, dispatch),
+    doubleAdd: bindActionCreators(doubleAdd, dispatch)
   }
 }
 

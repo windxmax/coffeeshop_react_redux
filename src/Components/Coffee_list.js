@@ -6,10 +6,26 @@ import initial_localStorage from '../Function/localstorage.js'
 /*отображает список покупок и кнопочку добавления в корзину*/
 export default class Add_to_user_order extends Component {
 //Добавляем товар в 'корзину'
-  onSomeCoffeeAmountClick(data) {
+onSomeCoffeeAmountClick(data) {
+  data.numeration = 1
+  //Проверка на 'дубирование элемента в корзине'
+  let checkToAdd = false
+      this.props.cap.map((curr, i, arr)=>{
+      if (data.name.indexOf(curr.name)!==-1 && data.amount.indexOf(curr.amount)!==-1){
+        console.log('double!');
+        curr.numeration += 1
+        this.props.double_add([i, curr])
+        initial_localStorage.double_change([i, curr])
+        checkToAdd = true
+      }
+    })
+  if (checkToAdd == false){
     this.props.add_to_user_order(data)
     initial_localStorage.add(data)
   }
+  console.log('localstorage and state');
+  console.log(JSON.parse(localStorage.getItem('data')))
+}
 
   render() {
 
