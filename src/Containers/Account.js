@@ -21,15 +21,17 @@ class Acc extends Component {
     const { add_to_user_order } = this.props.addActions
     return(
       <div>
-        <Account cap={cap} minus_item={user_order_change_minus}/>
+        <Account
+          cap={cap}
+          minus_item={user_order_change_minus}
+          add_to_user_order={add_to_user_order}
+      />
       </div>
     )
   }
 }
 
 function mapStateToProps (state) {
-  console.log('Стейт родителя аккаунта');
-  console.log(state);
   return {
     user_order: state.user_order
   }
