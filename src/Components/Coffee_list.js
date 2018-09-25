@@ -12,7 +12,6 @@ onSomeCoffeeAmountClick(data) {
   let checkToAdd = false
       this.props.cap.map((curr, i, arr)=>{
       if (data.name.indexOf(curr.name)!==-1 && data.amount.indexOf(curr.amount)!==-1){
-        console.log('double!');
         curr.numeration += 1
         this.props.double_add([i, curr])
         initial_localStorage.double_change([i, curr])
@@ -23,8 +22,6 @@ onSomeCoffeeAmountClick(data) {
     this.props.add_to_user_order(data)
     initial_localStorage.add(data)
   }
-  console.log('localstorage and state');
-  console.log(JSON.parse(localStorage.getItem('data')))
 }
 
   render() {

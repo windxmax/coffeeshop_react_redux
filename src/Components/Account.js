@@ -9,7 +9,6 @@ export default class Account extends Component{
     let checkToDel = false
     this.props.cap.map((curr, i, arr)=>{
       if (data[1].name.indexOf(curr.name)!==-1 && data[1].amount.indexOf(curr.amount)!==-1){
-        console.log('double!');
         if (curr.numeration > 1){
           curr.numeration -= 1
           this.props.double_minus([i, curr])
@@ -31,7 +30,6 @@ export default class Account extends Component{
     let checkToAdd = false
     this.props.cap.map((curr, i, arr)=>{
       if (data.name.indexOf(curr.name)!==-1 && data.amount.indexOf(curr.amount)!==-1){
-        console.log('double!');
         curr.numeration += 1
         this.props.double_add([i, curr])
         initial_localStorage.double_change([i, curr])
